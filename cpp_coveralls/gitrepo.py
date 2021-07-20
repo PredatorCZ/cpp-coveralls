@@ -1,7 +1,8 @@
-from __future__ import absolute_import
+#!/usr/bin/env python3
 
 import os
 import subprocess
+import re
 
 
 def gitrepo(cwd):
@@ -32,6 +33,8 @@ def gitrepo(cwd):
     if not repo.valid():
         return {}
 
+    origin_remote = re.search('(\w+)\s+(.*)\(fetch\)', repo.git('remote', '-v')[1])
+
     return {
         'head': {
             'id': repo.gitlog('%H'),
@@ -45,8 +48,7 @@ def gitrepo(cwd):
                   os.environ.get('APPVEYOR_REPO_BRANCH',
                   os.environ.get('CI_BRANCH',
                                  repo.git('rev-parse', '--abbrev-ref', 'HEAD')[1].strip()))),
-        'remotes': [{'name': line.split()[0], 'url': line.split()[1]}
-                    for line in repo.git('remote', '-v')[1] if '(fetch)' in line]
+        'remotes': [{'name': origin_remote.group(1).strip(), 'url': origin_remote.group(2).strip()}]
     }
 
 

@@ -1,8 +1,8 @@
+#!/usr/bin/env python3
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
 #
 # Copyright 2015 (c) Lei Xu <eddyxu@gmail.com>
 
-from __future__ import absolute_import
 from builtins import str
 
 import argparse

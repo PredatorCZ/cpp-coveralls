@@ -1,9 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Author: Lei Xu <eddyxu@gmail.com>
 
 
-from __future__ import print_function
 from setuptools import setup, find_packages
 import sys
 import os
@@ -24,9 +23,6 @@ classifiers = pkg.__classifiers__
 description = 'Upload gcov to coveralls.io'
 long_description = description
 
-with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as f:
-    reqs = f.read()
-
 setup(
     name=name,
     version=version,
@@ -38,7 +34,6 @@ setup(
     description=description,
     long_description=long_description,
     classifiers=classifiers,
-    install_requires=reqs,
     packages=find_packages(),
     license='Apache License 2.0',
     keywords='coveralls.io',

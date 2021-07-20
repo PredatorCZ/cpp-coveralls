@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
 #
 # Copyright 2017 (c) Lei Xu <eddyxu@gmail.com>
